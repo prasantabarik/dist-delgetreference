@@ -1,7 +1,7 @@
 apiVersion: dapr.io/v1alpha1
 kind: Component
 metadata:
-  name: azurekeyvault
+  name: keyvault
   namespace: default
 spec:
   type: secretstores.azure.keyvault
@@ -13,4 +13,4 @@ spec:
     - name: spnClientId
       value: "bcbc812f-b752-46fb-8e95-7574198b8228"
     - name: spnCertificateFile
-      value : "C:/Users/RaghavG2213/Downloads/dapr/getReferenceData/components/delspncert.pfx"
+      value : "./components/delspncert.pfx"

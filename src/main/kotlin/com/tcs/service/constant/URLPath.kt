@@ -12,6 +12,8 @@ object URLPath {
     const val SAMPLE_RESPONSE_JSON_PATH = "./src/test/resources/contracts/jsons/modelresponse.json"
     const val SAMPLE_CONTRACT_JSON_PATH = "./src/test/resources/contracts/jsons/contract-sample-data.json"
 
-
+    const val SECRET_STORE = "keyvault"
+    const val SECRET_KEY1 = "deliverymomentdbapi"
+    const val SECRET_KEY2 = "deliverycruddb"
 
 }
