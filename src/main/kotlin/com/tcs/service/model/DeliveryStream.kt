@@ -1,7 +1,7 @@
 package com.tcs.service.model
 
 import org.springframework.data.mongodb.core.mapping.Document
-import java.util.*
+
 
 @Document(collection = "delivery-stream")
 data class DeliveryStream(

@@ -5,14 +5,10 @@ import org.springframework.data.mongodb.repository.MongoRepository
 import org.springframework.stereotype.Repository
 
 @Repository
-interface DelivererRepository : MongoRepository<Deliverer, Int>, CustomRepository {
-fun findByDelivererNumber(delivererNumber:Int?): List<Deliverer>
-}
+interface DelivererRepository : MongoRepository<Deliverer, Int>, CustomRepository
 
 @Repository
-interface DeliveryChannelRepository : MongoRepository<DeliveryChannel, Int> {
-
-}
+interface DeliveryChannelRepository : MongoRepository<DeliveryChannel, Int>
 
 @Repository
 interface DeliveryStreamRepository : MongoRepository<DeliveryStream, Int> {
@@ -21,8 +17,6 @@ interface DeliveryStreamRepository : MongoRepository<DeliveryStream, Int> {
 }
 
 @Repository
-interface LogisticChannelRepository : MongoRepository<LogisticChannel, Int>{}
+interface LogisticChannelRepository : MongoRepository<LogisticChannel, Int>
 @Repository
-interface DeliveryScheduleRepository : MongoRepository<DeliveryScheduleModel, Int> {
-
-}
+interface DeliveryScheduleRepository : MongoRepository<DeliveryScheduleModel, Int>

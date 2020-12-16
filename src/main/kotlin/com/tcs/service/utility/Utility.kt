@@ -1,27 +1,32 @@
 package com.tcs.service.utility
 
-import com.fasterxml.jackson.databind.DeserializationFeature
-import com.fasterxml.jackson.databind.ObjectMapper
+
 import io.dapr.client.DaprClient
 import io.dapr.client.DaprClientBuilder
 
-import khttp.get
-import kotlin.reflect.typeOf
 
 object Utility {
 
+    private var client: DaprClient? = null
+
+    private fun getClientInstance(): DaprClient? {
+
+        if(client == null){
+            client = DaprClientBuilder().build()
+        }
+
+        return client
+    }
     fun getUtilitySecret(secretStore: String, secretKey: String): String? {
 
-        val client : DaprClient = DaprClientBuilder().build()
-        println(client)
-        var mapParams: MutableMap<String, String> = mutableMapOf<String, String>()
-        mapParams.put("metadata.namespace", "edppublic-deliverymomentcrud-dev")
 
-//        var secret = client.getSecret(secretStore,secretKey).block()
-        var secret = client.getSecret(secretStore,secretKey, mapParams).block()
+        val mapParams: MutableMap<String, String> = mutableMapOf()
+        mapParams["metadata.namespace"] = "edppublic-deliverymomentcrud-dev"
 
-        return secret?.get(secretKey.toString())
+
+        val secret = getClientInstance()?.getSecret(secretStore,secretKey, mapParams)?.block()
+
+        return secret?.get(secretKey)
     }
-
 
 }
